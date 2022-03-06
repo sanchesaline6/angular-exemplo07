@@ -25,7 +25,7 @@
     *ngIf="id >= 0"
   />
   <input type="button" value="Cadastrar" (click)="cadastrar()" *ngIf="id < 0" />
-  <input type="button" value="Editar" *ngIf="id >= 0" />
+  <input type="button" value="Editar" (click)="atualizar()" *ngIf="id >= 0" />
 </form>
 <!-- Tabela -->
 <table>

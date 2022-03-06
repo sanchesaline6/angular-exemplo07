@@ -34,6 +34,7 @@ export class CursosComponent implements OnInit {
   //Excluir
   excluir(id: number) {
     this.servico.excluir(id);
+    this.id = -1;
   }
 
   //Alterar
@@ -44,5 +45,11 @@ export class CursosComponent implements OnInit {
       this.vetorCursos[id].valor,
       this.vetorCursos[id].area
     );
+  }
+
+  //Atualizar
+  atualizar() {
+    this.servico.alterar(this.id, this.curso);
+    this.curso = new Curso(this.nome, this.valor, this.area);
   }
 }
