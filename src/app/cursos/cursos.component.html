@@ -18,7 +18,14 @@
     [(ngModel)]="curso.area"
     name="areaCurso"
   />
-  <input type="button" value="Cadastrar" (click)="cadastrar()" />
+  <input
+    type="button"
+    value="Cadastrar"
+    (click)="cadastrar()"
+    *ngIf="id >= 0"
+  />
+  <input type="button" value="Cadastrar" (click)="cadastrar()" *ngIf="id < 0" />
+  <input type="button" value="Editar" *ngIf="id >= 0" />
 </form>
 <!-- Tabela -->
 <table>
@@ -33,6 +40,7 @@
     <td>{{ curso.valor }}</td>
     <td>{{ curso.area }}</td>
     <td>
+      <button (click)="alterar(id)">Editar</button>
       <button (click)="excluir(id)">Excluir</button>
     </td>
   </tr>

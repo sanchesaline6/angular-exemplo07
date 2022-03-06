@@ -11,7 +11,7 @@ export class CursosComponent implements OnInit {
   //Atributos
   public vetorCursos: Curso[];
   public curso: Curso;
-  private id: number;
+  public id: number;
   nome: string;
   valor: number;
   area: string;
@@ -20,6 +20,7 @@ export class CursosComponent implements OnInit {
 
   //Inicialização
   ngOnInit() {
+    this.id = -1;
     this.curso = new Curso(this.nome, this.valor, this.area);
     this.vetorCursos = this.servico.listar();
   }
@@ -33,5 +34,15 @@ export class CursosComponent implements OnInit {
   //Excluir
   excluir(id: number) {
     this.servico.excluir(id);
+  }
+
+  //Alterar
+  alterar(id: number) {
+    this.id = id;
+    this.curso = new Curso(
+      this.vetorCursos[id].nome,
+      this.vetorCursos[id].valor,
+      this.vetorCursos[id].area
+    );
   }
 }
